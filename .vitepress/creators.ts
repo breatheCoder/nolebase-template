@@ -20,9 +20,9 @@ const getAvatarUrl = (name: string) => `https://github.com/${name}.png`
 
 export const creators: Creator[] = [
   {
-    name: 'breathe',
+    name: 'breatheCoder',
     avatar: '',
-    username: 'breathe',
+    username: 'breatheCoder',
     title: 'Java 后端开发',
     desc: '一个想要进行更多技术学习的后端开发爱好者',
     links: [
