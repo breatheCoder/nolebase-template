@@ -16,7 +16,7 @@ export interface Creator {
   emailAliases?: string[]
 }
 
-const getAvatarUrl = (name: string) => `https://github.com/${name}.png`
+const getAvatarUrl = (name: string) => `https://foruda.gitee.com/avatar/1744353488385279407/14672844_lvzihao521_1744353488.png!avatar200`
 
 export const creators: Creator[] = [
   {
