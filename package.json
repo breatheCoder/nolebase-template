@@ -26,7 +26,7 @@
     "docs:serve": "vitepress serve",
     "update": "tsx scripts/update.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vercel-build": "apt-get update && apt-get install -y libc6-dev libgl1-mesa-dev libxi-dev libfontconfig1-dev libfreetype6-dev && pnpm run update && vitepress build"
+    "vercel-build": "apk add --no-cache libc6-compat mesa-gl xi-dev fontconfig-dev freetype-dev && pnpm run update && vitepress build"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.12.2",
