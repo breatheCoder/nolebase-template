@@ -25,7 +25,9 @@
     "docs:build": "pnpm run update && vitepress build",
     "docs:serve": "vitepress serve",
     "update": "tsx scripts/update.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    // 新增：Vercel 专用构建脚本，预装 Skia 依赖 + 执行 update + 构建
+    "vercel-build": "apt-get update && apt-get install -y libc6-dev libgl1-mesa-dev libxi-dev libfontconfig1-dev libfreetype6-dev && pnpm run update && vitepress build"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.12.2",
