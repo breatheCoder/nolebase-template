@@ -25,8 +25,7 @@
     "docs:build": "pnpm run update && vitepress build",
     "docs:serve": "vitepress serve",
     "update": "tsx scripts/update.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "vercel-build": "apk add --no-cache libc6-compat mesa-gl xi-dev fontconfig-dev freetype-dev && pnpm run update && vitepress build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.12.2",
