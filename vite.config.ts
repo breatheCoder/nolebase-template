@@ -3,9 +3,10 @@ import Components from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
 import Inspect from 'vite-plugin-inspect'
 
+// 注释插件导入（避免未使用的导入警告）
+// import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite'
 import { GitChangelog, GitChangelogMarkdownSection } from '@nolebase/vitepress-plugin-git-changelog/vite'
 import { PageProperties, PagePropertiesMarkdownSection } from '@nolebase/vitepress-plugin-page-properties/vite'
-import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite'
 
 import { githubRepoLink } from './metadata'
 
@@ -13,11 +14,7 @@ export default defineConfig(async () => {
   return {
     assetsInclude: ['**/*.mov'],
     optimizeDeps: {
-      // vitepress is aliased with replacement `join(DIST_CLIENT_PATH, '/index')`
-      // This needs to be excluded from optimization
-      exclude: [
-        'vitepress',
-      ],
+      exclude: ['vitepress'],
     },
     plugins: [
       Inspect(),
@@ -25,25 +22,16 @@ export default defineConfig(async () => {
         repoURL: () => githubRepoLink,
       }),
       GitChangelogMarkdownSection({
-        getChangelogTitle: (): string => {
-          return '文件历史'
-        },
-        getContributorsTitle: (): string => {
-          return '贡献者'
-        },
-        excludes: [
-          'toc.md',
-          'index.md',
-        ],
+        getChangelogTitle: (): string => '文件历史',
+        getContributorsTitle: (): string => '贡献者',
+        excludes: ['toc.md', 'index.md'],
       }),
       PageProperties(),
       PagePropertiesMarkdownSection({
-        excludes: [
-          'toc.md',
-          'index.md',
-        ],
+        excludes: ['toc.md', 'index.md'],
       }),
-      ThumbnailHashImages(),
+      // 注释掉 ThumbnailHashImages 插件，彻底绕开 Skia 错误
+      // ThumbnailHashImages(),
       Components({
         include: [/\.vue$/, /\.md$/],
         dirs: '.vitepress/theme/components',
